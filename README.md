@@ -38,13 +38,6 @@ yo @plone/volto my-volto-project --addon @plonegovbr/volto-vlibras
 cd my-volto-project
 ```
 
-Install new add-on and restart Volto:
-
-```shell
-yarn install
-yarn start
-```
-
 ### Existing Volto Project
 
 If you already have a Volto project, just update `package.json`:
@@ -58,10 +51,37 @@ If you already have a Volto project, just update `package.json`:
     "@plonegovbr/volto-vlibras": "*"
 }
 ```
+### Configuration <a name="config"></a>
+
+To inject the component in the project add the appextras configuration in the config.js file.
+
+A suggested way is to use `appExtras` from settings object ([docs](https://6.dev-docs.plone.org/volto/recipes/appextras.html)):
+
+```jsx
+import Libras from '@plonegovbr/volto-vlibras/components/Libras';
+
+export const settings = {
+  ...defaultSettings,
+  appExtras: [
+    ...defaultSettings.appExtras,
+    {
+      match: '',
+      component: Libras,
+    },
+  ],
+};
+```
 
 ### Test it
 
-Go to http://localhost:3000/
+After adding the add-on, and its configuration, you need to install it and then `start` the project:
+
+```shell
+yarn install
+yarn start
+```
+
+Then go to http://localhost:3000/
 
 ## Contribute
 
