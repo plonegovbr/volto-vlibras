@@ -1,6 +1,6 @@
 {
   "name": "@plonegovbr/volto-vlibras",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "An addon integrating the VLibras service into a Plone site running Volto.",
   "author": "PloneGov-BR",
   "homepage": "https://github.com/plonegovbr/volto-vlibras",
