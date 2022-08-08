@@ -17,12 +17,13 @@ This addon integrates [VLibras](https://www.gov.br/governodigital/pt-br/vlibras/
 
 ## Screenshots
 
-TODO
+### Opening VLibras Widget
 
-## Examples
+<img alt="VLibras: Abertura" src="./docs/vlibras-opening.gif" width="400" />
 
+### Using the Widget
 
-TODO
+<img alt="VLibras: Leitura" src="./docs/vlibras-usage.gif" width="400" />
 
 
 ## Install
