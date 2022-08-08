@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { isCmsUi } from '@plone/volto/helpers';
 
 const widgetSrc = 'https://vlibras.gov.br/app';
 const scriptId = 'VLibras';
@@ -35,8 +36,8 @@ const Libras = (props) => {
   }, [loaded]);
 
   useEffect(() => {
-    const re = /\/(add|edit|login|logout)/;
-    if (re.exec(pathName)) {
+    // Disable widget on non content routes
+    if (isCmsUi(pathName)) {
       setStatus('disabled');
     } else {
       setStatus('enabled');
