@@ -47,9 +47,9 @@ jobs:
       - name: ESlint
         run: cd addon-testing-project && yarn && yarn lint
 
-      # Stylelint
-      - name: Stylelint
-        run: cd addon-testing-project && yarn && yarn stylelint
+      # # Stylelint
+      # - name: Stylelint
+      #   run: cd addon-testing-project && yarn && yarn stylelint
 
       # Prettier
       - name: Prettier
