@@ -1,4 +1,4 @@
-<div align="center"><img alt="logo" src="./docs/tito.svg" width="70" /></div>
+<div align="center"><img alt="logo" src="./docs/icon.png" width="70" /></div>
 
 <h1 align="center">VLibras support for Plone</h1>
 
