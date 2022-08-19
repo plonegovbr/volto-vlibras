@@ -66,7 +66,7 @@ export default function applyConfig(config) {
   config.settings = {
     ...config.settings,
     appExtras: [
-      ...defaultSettings.appExtras,
+      ...config.settings.appExtras,
       {
         match: '',
         component: Libras,
