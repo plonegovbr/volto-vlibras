@@ -1,48 +1,51 @@
-name: Unit tests
-on: [push]
+name: Unit Tests
+on:
+  push:
+    paths:
+      - "*.js"
+      - "*.json"
+      - "*.yaml"
+      - "packages/**"
+
+env:
+  NODE_VERSION: 20.x
+
 jobs:
-  build:
+  unit:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x]
-        python-version: [3.9]
-    env:
-      NAMESPACE: '@plonegovbr'
-      GIT_NAME: volto-vlibras
-      GIT_USER: 'plonegovbr'
-      GIT_BRANCH: ${GITHUB_REF##*/}
+
     steps:
       - name: Main checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      # node setup
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Use Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ env.NODE_VERSION }}
 
-      # node cache
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-      - uses: actions/cache@v1
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      - uses: pnpm/action-setup@v3
+        name: Install pnpm
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          version: 8
+          # We don't want to install until later,
+          # when the cache and Cypress are in place
+          run_install: false
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v4
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
-      # node install
+            ${{ runner.os }}-pnpm-store-
+
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: make install
 
-      - name: Install yo and @plone/generator-volto
-        run: npm i -g yo @plone/generator-volto
-
-      - name: Setup addon testing environment
-        run: npx -p @plone/scripts addon clone https://github.com/${{env.GIT_USER}}/${{env.GIT_NAME}}.git --branch ${{env.GIT_BRANCH}}
-
-      # Unit tests
       - name: Unit tests
-        run: cd addon-testing-project && yarn && CI=true yarn test
+        run: make test-ci
