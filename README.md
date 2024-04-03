@@ -3,7 +3,7 @@
 An addon integrating the VLibras service into a Plone site running Volto.
 
 [![npm](https://img.shields.io/npm/v/@plonegovbr/volto-vlibras)](https://www.npmjs.com/package/@plonegovbr/volto-vlibras)
-[![](https://img.shields.io/badge/-Storybook-ff4785?logo=Storybook&logoColor=white&style=flat-square)](https://kitconcept.github.io/volto-vlibras/)
+[![](https://img.shields.io/badge/-Storybook-ff4785?logo=Storybook&logoColor=white&style=flat-square)](https://plonegovbr.github.io/volto-vlibras/)
 [![Code analysis checks](https://github.com/plonegovbr/volto-vlibras/actions/workflows/code.yml/badge.svg)](https://github.com/plonegovbr/volto-vlibras/actions/workflows/code.yml)
 [![Unit tests](https://github.com/plonegovbr/volto-vlibras/actions/workflows/unit.yml/badge.svg)](https://github.com/plonegovbr/volto-vlibras/actions/workflows/unit.yml)
 
