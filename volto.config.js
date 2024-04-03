@@ -3,7 +3,7 @@ const addons = ['@plonegovbr/volto-vlibras'];
 const theme = '';
 
 if (isCI) {
-  addons.push('@plonegovbr/volto-vlibras:myCIProfile');
+  addons.push('@plonegovbr/volto-vlibras:ciProfile');
 }
 
 module.exports = {

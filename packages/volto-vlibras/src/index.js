@@ -4,7 +4,7 @@ const applyConfig = (config) => {
   return config;
 };
 
-export const myCIProfile = (config) => {
+export const ciProfile = (config) => {
   config.settings.appExtras = [
     ...config.settings.appExtras,
     {
