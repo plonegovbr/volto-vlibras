@@ -5,10 +5,13 @@ const widgetSrc = 'https://vlibras.gov.br/app';
 const scriptId = 'VLibras';
 const scriptSrc = `https://vlibras.gov.br/app/vlibras-plugin.js`;
 
-const loadVLibras = (callback) => {
+const loadVLibras = (callback, force) => {
   const existingScript = document.getElementById(scriptId);
   if (existingScript && callback) {
     callback(true);
+    if (force) {
+      window.onload();
+    }
   } else {
     if (callback) callback(false);
     const script = document.createElement('script');
@@ -20,6 +23,9 @@ const loadVLibras = (callback) => {
       if (callback) callback(true);
       if (typeof window !== 'undefined') {
         new window.VLibras.Widget(widgetSrc);
+        if (force) {
+          window.onload();
+        }
       }
     };
   }
@@ -28,12 +34,12 @@ const loadVLibras = (callback) => {
 const Libras = (props) => {
   const [loaded, setLoaded] = useState(false);
   const [status, setStatus] = useState('enabled');
-  const { location } = props;
+  const { location, force } = props;
   const pathName = location.pathname;
 
   useEffect(() => {
-    loadVLibras(setLoaded);
-  }, [loaded]);
+    loadVLibras(setLoaded, force);
+  }, [loaded, force]);
 
   useEffect(() => {
     // Disable widget on non content routes
