@@ -1,4 +1,4 @@
-context('Example Acceptance Tests', () => {
+context('Load VLibras', () => {
   describe('Visit a page', () => {
     beforeEach(() => {
       // Given a logged in editor
@@ -11,10 +11,9 @@ context('Example Acceptance Tests', () => {
       cy.autologin();
     });
 
-    it('As editor I can add edit a Page', function () {
+    it('VLibras should be visible after visiting a page', function () {
       cy.visit('/document');
-      cy.navigate('/document/edit');
-      cy.get('#toolbar-save').click();
+      cy.get('#vlibras-wrapper', { timeout: 10000 }).should('be.visible');
     });
   });
 });

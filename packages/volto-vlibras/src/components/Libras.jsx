@@ -43,9 +43,8 @@ const Libras = (props) => {
       setStatus('enabled');
     }
   }, [pathName]);
-
   return (
-    <div vw="true" className={status}>
+    <div vw="true" className={status} id={'vlibras-wrapper'}>
       <div vw-access-button="true" className="active"></div>
       <div vw-plugin-wrapper="true">
         <div className="vw-plugin-top-wrapper"></div>

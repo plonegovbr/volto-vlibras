@@ -80,11 +80,11 @@ storybook-build:		## Storybook: Build
 ## Acceptance
 .PHONY: start-test-acceptance-frontend-dev
 start-test-acceptance-frontend-dev: ## Start acceptance frontend in dev mode
-	RAZZLE_API_PATH=http://127.0.0.1:55001/plone pnpm start
+	CI=true RAZZLE_API_PATH=http://127.0.0.1:55001/plone pnpm start
 
 .PHONY: start-test-acceptance-frontend
 start-test-acceptance-frontend: ## Start acceptance frontend in prod mode
-	RAZZLE_API_PATH=http://127.0.0.1:55001/plone pnpm build && pnpm start:prod
+	CI=true RAZZLE_API_PATH=http://127.0.0.1:55001/plone pnpm build && pnpm start:prod
 
 .PHONY: start-test-acceptance-server
 start-test-acceptance-server: ## Start acceptance server

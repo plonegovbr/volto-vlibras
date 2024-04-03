@@ -59,22 +59,16 @@ To inject the component in the project add the appextras configuration in the `c
 A suggested way is to use `appExtras` from settings object ([docs](https://6.docs.plone.org/volto/development/appextras.html)):
 
 ```jsx
-import '@plone/volto/config';
 import Libras from '@plonegovbr/volto-vlibras/components/Libras';
 
-export default function applyConfig(config) {
-
-  config.settings = {
-    ...config.settings,
-    appExtras: [
-      ...config.settings.appExtras,
-      {
-        match: '',
-        component: Libras,
-      },
-    ],
-  }
-
+const applyConfig = (config) => {
+  config.settings.appExtras = [
+    ...config.settings.appExtras,
+    {
+      match: '',
+      component: Libras,
+    },
+  ];
   return config;
 
 };
