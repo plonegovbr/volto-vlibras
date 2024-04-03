@@ -1,0 +1,43 @@
+{
+  "name": "@plonegovbr/volto-vlibras",
+  "version": "1.0.0-alpha.1",
+  "description": "An addon integrating the VLibras service into a Plone site running Volto.",
+  "main": "src/index.js",
+  "license": "MIT",
+  "keywords": [
+    "volto-addon",
+    "volto",
+    "plone",
+    "libras",
+    "vlibras",
+    "react"
+  ],
+  "author": "PloneGov-BR",
+  "homepage": "https://github.com/plonegovbr/volto-vlibras#readme",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:plonegovbr/volto-vlibras.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "i18n": "rm -rf build/messages && NODE_ENV=production i18n --addon",
+    "dry-release": "release-it --dry-run",
+    "release": "release-it",
+    "release-major-alpha": "release-it major --preRelease=alpha",
+    "release-alpha": "release-it --preRelease=alpha"
+  },
+  "dependencies": {
+    "@plone/components": "1.7.0"
+  },
+  "peerDependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-intl": "3.8.0"
+  },
+  "devDependencies": {
+    "@plone/scripts": "^3.6.1",
+    "release-it": "^17.1.1"
+  }
+}
