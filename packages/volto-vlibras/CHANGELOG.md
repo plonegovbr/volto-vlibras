@@ -8,6 +8,12 @@
 
 <!-- towncrier release notes start -->
 
+## 0.4.0 (2024-04-03)
+
+### Feature
+
+- Reorganize repository to use new Volto add-on format based on cookiecutter-volto [@ericof] [#3](https://github.com/plonegovbr/volto-vlibras/issue/3)
+
 ## [0.3.0](https://github.com/plonegovbr/volto-vlibras/compare/0.2.0...0.3.0) (2022-08-18)
 
 ## [0.2.0](https://github.com/plonegovbr/volto-vlibras/compare/0.1.0...0.2.0) (2022-08-08)
