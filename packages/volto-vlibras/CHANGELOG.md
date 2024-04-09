@@ -8,6 +8,12 @@
 
 <!-- towncrier release notes start -->
 
+## 0.4.1 (2024-04-08)
+
+### Bugfix
+
+- Add README.md to the NPM package on release [@ericof] [#5](https://github.com/plonegovbr/volto-vlibras/issue/5)
+
 ## 0.4.0 (2024-04-03)
 
 ### Feature
